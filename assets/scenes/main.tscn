@@ -5,28 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://bt2s5o3bju85j" path="res://assets/characters.png" id="3_1gplj"]
 [ext_resource type="Script" path="res://scripts/character.gd" id="3_tf2a5"]
 
-[sub_resource type="Animation" id="Animation_e6ufi"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/Visual/HandLeft:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.533333, 0.966667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-1, 0), Vector2(0, -1)]
-}
-
 [sub_resource type="Animation" id="Animation_1qbg1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/Visual/HandLeft:position")
+tracks/0/path = NodePath("Visual/Legs/Body/HandLeft:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,20 +19,100 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Legs/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Legs/Body/HandRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Legs/Body/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e6ufi"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual/Legs/Body/HandLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.533333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 0), Vector2(0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual/Legs/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visual/Legs/Body/HandRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visual/Legs/Body/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pcvb4"]
 _data = {
 "RESET": SubResource("Animation_1qbg1"),
 "idle": SubResource("Animation_e6ufi")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkujs"]
-atlas = ExtResource("3_1gplj")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n6vre"]
-atlas = ExtResource("3_1gplj")
-region = Rect2(128, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5bva"]
 atlas = ExtResource("3_1gplj")
@@ -62,6 +126,10 @@ region = Rect2(144, 0, 16, 16)
 atlas = ExtResource("3_1gplj")
 region = Rect2(160, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkujs"]
+atlas = ExtResource("3_1gplj")
+region = Rect2(32, 16, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_71ae8"]
 atlas = ExtResource("3_1gplj")
 region = Rect2(16, 16, 16, 16)
@@ -74,13 +142,17 @@ region = Rect2(96, 0, 16, 16)
 atlas = ExtResource("3_1gplj")
 region = Rect2(112, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vonbe"]
-atlas = ExtResource("3_1gplj")
-region = Rect2(48, 16, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kfqx7"]
 atlas = ExtResource("3_1gplj")
 region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6vre"]
+atlas = ExtResource("3_1gplj")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vonbe"]
+atlas = ExtResource("3_1gplj")
+region = Rect2(48, 16, 16, 16)
 
 [node name="Node2D" type="Node2D"]
 
@@ -107,63 +179,61 @@ zoom = Vector2(4, 4)
 script = ExtResource("3_tf2a5")
 SkinColor = 1
 animationPlayer = NodePath("../AnimationPlayer")
-Head = NodePath("../Visual/Head")
-Body = NodePath("../Visual/Body")
-HandLeft = NodePath("../Visual/HandLeft")
-HandRight = NodePath("../Visual/HandRight")
+Head = NodePath("../Visual/Legs/Body/Head")
+Body = NodePath("../Visual/Legs/Body")
+HandLeft = NodePath("../Visual/Legs/Body/HandLeft")
+HandRight = NodePath("../Visual/Legs/Body/HandRight")
 Legs = NodePath("../Visual/Legs")
-Eyes = NodePath("../Visual/Eyes")
-Hair = NodePath("../Visual/Head/Hair")
-BodyWear = NodePath("../Visual/BodyWear")
-HeadWear = NodePath("../Visual/Head/HeadWear")
-LegWear = NodePath("../Visual/LegWear")
-FootWear = NodePath("../Visual/FootWear")
+Eyes = NodePath("../Visual/Legs/Body/Head/Eyes")
+Hair = NodePath("../Visual/Legs/Body/Head/Hair")
+BodyWear = NodePath("../Visual/Legs/Body/BodyWear")
+HeadWear = NodePath("../Visual/Legs/Body/Head/HeadWear")
+LegWear = NodePath("../Visual/Legs/LegWear")
+FootWear = NodePath("../Visual/Legs/FootWear")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
-reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_pcvb4")
 }
 
 [node name="Visual" type="Node2D" parent="Character"]
 
-[node name="Body" type="Sprite2D" parent="Character/Visual"]
-texture = SubResource("AtlasTexture_rkujs")
-
-[node name="BodyWear" type="Sprite2D" parent="Character/Visual"]
-texture = SubResource("AtlasTexture_n6vre")
-
 [node name="Legs" type="Sprite2D" parent="Character/Visual"]
 texture = SubResource("AtlasTexture_v5bva")
 flip_h = true
 
-[node name="LegWear" type="Sprite2D" parent="Character/Visual"]
+[node name="LegWear" type="Sprite2D" parent="Character/Visual/Legs"]
 texture = SubResource("AtlasTexture_vo013")
 flip_h = true
 
-[node name="FootWear" type="Sprite2D" parent="Character/Visual"]
+[node name="FootWear" type="Sprite2D" parent="Character/Visual/Legs"]
 texture = SubResource("AtlasTexture_03rqi")
 flip_h = true
 
-[node name="Head" type="Sprite2D" parent="Character/Visual"]
+[node name="Body" type="Sprite2D" parent="Character/Visual/Legs"]
+texture = SubResource("AtlasTexture_rkujs")
+
+[node name="Head" type="Sprite2D" parent="Character/Visual/Legs/Body"]
 texture = SubResource("AtlasTexture_71ae8")
 
-[node name="Hair" type="Sprite2D" parent="Character/Visual/Head"]
+[node name="Hair" type="Sprite2D" parent="Character/Visual/Legs/Body/Head"]
 texture = SubResource("AtlasTexture_i2paa")
 
-[node name="HeadWear" type="Sprite2D" parent="Character/Visual/Head"]
+[node name="HeadWear" type="Sprite2D" parent="Character/Visual/Legs/Body/Head"]
 visible = false
 texture = SubResource("AtlasTexture_f0hn3")
 
-[node name="HandLeft" type="Sprite2D" parent="Character/Visual"]
-position = Vector2(0, -0.0985399)
+[node name="Eyes" type="Sprite2D" parent="Character/Visual/Legs/Body/Head"]
+texture = SubResource("AtlasTexture_kfqx7")
+
+[node name="BodyWear" type="Sprite2D" parent="Character/Visual/Legs/Body"]
+texture = SubResource("AtlasTexture_n6vre")
+
+[node name="HandLeft" type="Sprite2D" parent="Character/Visual/Legs/Body"]
 texture = SubResource("AtlasTexture_vonbe")
 
-[node name="HandRight" type="Sprite2D" parent="Character/Visual"]
+[node name="HandRight" type="Sprite2D" parent="Character/Visual/Legs/Body"]
 texture = SubResource("AtlasTexture_vonbe")
 flip_h = true
-
-[node name="Eyes" type="Sprite2D" parent="Character/Visual"]
-texture = SubResource("AtlasTexture_kfqx7")
 
 [node name="Node" type="Node" parent="."]
